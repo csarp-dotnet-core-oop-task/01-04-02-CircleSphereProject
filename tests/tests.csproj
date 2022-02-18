@@ -15,5 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CircleSphereProject\CircleSphereProject.csproj" />
   </ItemGroup>
 </Project>

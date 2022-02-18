@@ -6,15 +6,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace gyak_01_02_01_Maze.Tests
+using CircleSphereProject;
+
+namespace CircleSphereProject.Tests
 {
     [TestClass()]
     public class Tests
     {
         [TestMethod()]
-        public void Test()
+        public void TestConstructor()
         {
-            Assert.Fail();
+            try
+            {
+                Geometry geometry = new Geometry(3.5);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("A Geometry konstruktor hibás dob");
+            }
         }
-   }
+        [TestMethod()]
+        public void TestToString()
+        {
+            {
+                Geometry geometry = new Geometry(4.67);
+                string expected = "A kör sugara:4,67";
+                string actual = geometry.ToString();
+                Assert.AreEqual(actual, expected, "A ToString metódus nem megfelelően működik!");
+            }
+        }
+        [TestMethod()]
+        public void TestCircleArea()
+        {
+            Geometry geometry = new Geometry(4.67);
+            double expected = 68.515;
+            double actual = geometry.CircleArea;
+            Assert.AreEqual(expected, actual, 0.001, "A kör területét nem jól határozza meg");
+        }
+
+        [TestMethod()]
+        public void TestSphereVolume()
+        {
+            Geometry geometry = new Geometry(4.67);
+            double expected = 1992.306;
+            double actual = geometry.SphereVolume;
+            Assert.AreEqual(expected, actual, 0.001, "A gömb térfogatátnem jól határozza meg");
+        }
+    }
 }

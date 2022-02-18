@@ -48,7 +48,7 @@ namespace CircleSphereProject.Tests
         public void TestSphereVolume()
         {
             Geometry geometry = new Geometry(4.67);
-            double expected = 1992.306;
+            double expected = 426.618;
             double actual = geometry.SphereVolume;
             Assert.AreEqual(expected, actual, 0.001, "A gömb térfogatátnem jól határozza meg");
         }

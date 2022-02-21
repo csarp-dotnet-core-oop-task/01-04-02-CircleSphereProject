@@ -30,9 +30,14 @@ namespace CircleSphereProject.Tests
         {
             {
                 Geometry geometry = new Geometry(4.67);
-                string expected = "A kör sugara:4,67";
+                var culture = System.Globalization.CultureInfo.CurrentCulture;
+                string expected = "";
+                if (culture.ToString() == "hu-HU")
+                    expected = "A kör sugara:4,67";
+                else
+                    expected = "A kör sugara:4.67";
                 string actual = geometry.ToString();
-                Assert.AreEqual(actual, expected, "A ToString metódus nem megfelelően működik!");
+                Assert.AreEqual(expected, actual, "A ToString metódus nem megfelelően működik!");
             }
         }
         [TestMethod()]
